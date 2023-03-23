@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="../public/style/main.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Відділи</title>
+</head>
+<body class="body">
+    <a class="btn btn-outline-secondary" href="/" style="margin-left: 50px;">На головну</a>
+    <h1 class="text-center">Список відділів</h1>
+    <div class="table-responsive">
+<table class="table table-primary  table-hover table-sm" >
+    <tr>
+        <th>Код відділу</th>
+        <th>Назва</th>
+    </tr>    
+<% for (var i = 0; i < Departament.length; i++) { %>
+      <tr 
+      >
+        <td >
+            <%= Departament[i].Id_viddil %>
+        </td>
+        <td >
+          <%= Departament[i].Naz_viddil %>
+          
+         </td>
+        <td style="background-color: white;">
+             <a class="btn btn-danger" href="/api/departament/delete/<%= Departament[i].Id_viddil%>"
+              >Видалити</a>
+        </td>
+        <td style="background-color: white">
+             <a class="btn btn-info" href="/api/departament/<%= Departament[i].Id_viddil%>"
+              >Редагувати</a>
+        </td>
+      </tr>
+    <% } %>
+    </table>
+    </div>
+    <h2 class="text-center">
+        Додати відділ
+    </h2>
+    <form action="departament" method="POST" class="text-center">
+        <div class="mb-3">
+        <label class="form-label">
+            ID відділу
+            <input type="number" placeholder="id" class="form-control" id="Id_viddil" name="Id_viddil" min="1">
+        </label class="form-label">
+             <label>
+            Назва відділу
+            <input type="text" class="form-control" placeholder="Назва" id="Naz_viddil" name="Naz_viddil">
+        </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Додати</button>
+    </form>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+ crossorigin="anonymous"></script>
+</body>
+
+</html>
